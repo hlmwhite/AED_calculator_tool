@@ -8,9 +8,7 @@ parser = argparse.ArgumentParser(
     formatter_class=argparse.RawTextHelpFormatter,
 )
 
-parser.add_argument(
-    "-A", "--annotation", required=True, help="Gene annotation/prediction in GFF format"
-)
+parser.add_argument("-A", "--annotation", required=True, help="Gene annotation/prediction in GFF format")
 parser.add_argument("-E", "--evidence", required=True, help="Evidence GFF file(s)")
 # parser.add_argument("-o", "--outdir", help="Output directory", default="./results")
 parser.add_argument(

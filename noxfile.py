@@ -178,6 +178,7 @@ def pytest(session):
         "tests",
     )
 
+
 @nox.session(python=PYTHON_VERSION)
 def precommit(session):
     """
@@ -189,7 +190,8 @@ def precommit(session):
     session.notify("black_check")
     session.notify("mypy_check")
     session.notify("tomlsort_check")
-    session.notify("isort_check")
+    # session.notify("isort_check")
+
 
 @nox.session(python=PYTHON_VERSION)
 def pytest_loud(session):

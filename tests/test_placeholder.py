@@ -1,6 +1,10 @@
-from example_calculator_v2 import (calculate_accuracy, calculate_distance,
-                                   calculate_sensitivity,
-                                   calculate_specificity, extract_exon_ints)
+from example_calculator_v2 import (
+    calculate_accuracy,
+    calculate_distance,
+    calculate_sensitivity,
+    calculate_specificity,
+    extract_exon_ints,
+)
 
 
 def test_sensitivity_basic():
