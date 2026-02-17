@@ -58,7 +58,9 @@ evidenceFile = gffpd.read_gff3(args.evidence)  # Assuming only one evidence file
 #    return intervals
 
 
-def extract_exon_ints(df, tx_id, fType, attr_col="attributes"): # extract exon hints into a list of intervals for a given transcript ID
+def extract_exon_ints(
+    df, tx_id, fType, attr_col="attributes"
+):  # extract exon hints into a list of intervals for a given transcript ID
     """
     Return rows for the transcript feature (ID=tx_id) and all child features (Parent=tx_id).
     df: a pandas DataFrame with an attributes column as a string.
