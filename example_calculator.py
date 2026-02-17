@@ -1,15 +1,12 @@
 import gffpandas.gffpandas as gffpd
-import pandas as pd
-
-
 
 annotation = gffpd.read_gff3("gene1_ann.gff")
 evidence = gffpd.read_gff3("gene2_ev.gff")
 
-#annotation_file = gffpd.read_gff3("copy.genomic.gff")
-#evidence_file = gffpd.read_gff3("out.stringtie.gtf")
+# annotation_file = gffpd.read_gff3("copy.genomic.gff")
+# evidence_file = gffpd.read_gff3("out.stringtie.gtf")
 
-#gffcmp_loci_file = pd.read_csv("gffcmp.loci", sep="\t", header=None)  
+# gffcmp_loci_file = pd.read_csv("gffcmp.loci", sep="\t", header=None)
 
 ann_exon_df = annotation.filter_feature_of_type(["exon"])
 intervals_ann = ann_exon_df.df[["start", "end"]].values.tolist()
@@ -17,8 +14,9 @@ intervals_ann = ann_exon_df.df[["start", "end"]].values.tolist()
 ev_exon_df = evidence.filter_feature_of_type(["exon"])
 intervals_ev = ev_exon_df.df[["start", "end"]].values.tolist()
 
-#overlap_count = 0
-#non_overlap_count = 0
+# overlap_count = 0
+# non_overlap_count = 0
+
 
 def get_overlaps_sen(intervals_ann, intervals_ev, overlap_count, non_overlap_count):
     for int2 in intervals_ann:
@@ -59,8 +57,9 @@ print("SN (or sensitivity):", SN)
 
 # SP can be thought of as the fraction of i overlapping j. where i is the evidence and j is the annotation/predicition
 
-#overlap_count = 0
+# overlap_count = 0
 total_values = sum(end - start + 1 for start, end in intervals_ev)
+
 
 def get_overlaps_spec(intervals_ann, intervals_ev, overlap_count):
     for int2 in intervals_ev:
@@ -77,6 +76,7 @@ def get_overlaps_spec(intervals_ann, intervals_ev, overlap_count):
             if found_overlap:
                 overlap_count += 1
     return overlap_count
+
 
 overlap_count = get_overlaps_spec(intervals_ann, intervals_ev, 0)
 
