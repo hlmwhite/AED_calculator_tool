@@ -10,7 +10,6 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument("-A", "--annotation", required=True, help="Gene annotation/prediction in GFF format")
 parser.add_argument("-E", "--evidence", required=True, help="Evidence GFF file(s)")
-# parser.add_argument("-o", "--outdir", help="Output directory", default="./results")
 parser.add_argument(
     "-a",
     "--annotation_id",
@@ -34,28 +33,6 @@ annotationFile = gffpd.read_gff3(args.annotation)
 evidenceFile = gffpd.read_gff3(args.evidence)  # Assuming only one evidence file for now
 
 
-# annotation_file = gffpd.read_gff3("genomic.gff")
-# evidence_file = gffpd.read_gff3("stringtie.test.gff")
-
-# gffcmp_loci_file = pd.read_csv("gffcmp.loc.test", sep="\t", header=None)
-
-# tx_id = "transcript:XM_12345"
-
-# tx_df = gff.df[gff.df["attributes"].apply(lambda x: x.get("ID") == tx_id)]
-
-
-# def extract_exon_ints(coordsFile, transcriptString):
-#    tx_id = transcriptString
-#    tx_and_children = coordsFile.df[
-#        coordsFile.df["attributes"].apply(
-#            lambda x: x.get("ID") == tx_id or x.get("Parent") == tx_id
-#        )
-#    ]
-#    exon_df = tx_and_children.filter_feature_of_type(["exon"])
-#    intervals = exon_df.df[["start", "end"]].values.tolist()
-#    return intervals
-
-
 def extract_exon_ints(
     df, tx_id, fType, attr_col="attributes"
 ):  # extract exon hints into a list of intervals for a given transcript ID
@@ -75,9 +52,6 @@ def extract_exon_ints(
         attrs = df[attr_col].astype(str)
         mask = attrs.str.contains(tx_pat)
 
-    # attrs = df[attr_col].astype(str)
-    # mask = attrs.str.contains(id_pat) | attrs.str.contains(parent_pat)
-
     # return df.loc[mask].copy()
     subset_df = df.loc[mask].copy()
     exon_df = subset_df[subset_df["type"] == "exon"].copy()
@@ -88,15 +62,6 @@ def extract_exon_ints(
     intervals = list(zip(exon_df["start"], exon_df["end"]))
     return intervals
 
-
-# ev_exon_df = evidence.filter_feature_of_type(["exon"])
-# intervals_ev = ev_exon_df.df[["start", "end"]].values.tolist()
-
-# overlap_count = 0
-# non_overlap_count = 0
-
-# ann_transcript = args.annotation_id
-# ev_transcript = args.evidence_id
 
 intervals_ann = extract_exon_ints(annotationFile.df, args.annotation_id, "ANN")
 intervals_ev = extract_exon_ints(evidenceFile.df, args.evidence_id, "STRINGTIE")
