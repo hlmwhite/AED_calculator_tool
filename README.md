@@ -14,7 +14,7 @@ git clone https://github.com/hlmwhite/AED_calculator_tool.git
 
 ## Usage
 
-For single use cases (i.e. one gene model one evidence model), simply run:
+For single use cases (i.e. one gene model one evidence model), simply run from the command line:
 
 ```bash
 
@@ -22,11 +22,21 @@ python3 example_calculator_v2.py -A genome.gff -E evidence.gff -a "<annotation g
 
 ```
 
+where genome.gff (-A) is your annotation, evidence.gff (-E) is something like a stringtie output (gff/gtf), the gene to look at in your annotation (-a) and finally the transcript ID to look at (-e).
+
 An example using the test files inlcuded here is:
 
 ```bash
 
 python3 example_calculator_v2.py -A test.genome.gff -E stringtie.test.gff -a "rna-XM_034815643.1" -e "STRG.95.1"
+
+## expected output
+Number of overlapping values (true positives): 622
+Number of non-overlapping values (false negatives): 34
+SN (or sensitivity): 0.948170731707317
+Number of overlapping values: 622
+SP (or specificity): 1.0
+distance: 0.02591463414634143
 
 ```
 
