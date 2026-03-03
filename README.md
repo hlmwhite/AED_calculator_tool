@@ -22,7 +22,7 @@ python3 example_calculator_v2.py -A genome.gff -E evidence.gff -a "<annotation g
 
 ```
 
-where genome.gff (-A) is your annotation, evidence.gff (-E) is something like a stringtie output (gff/gtf), the gene to look at in your annotation (-a) and finally the transcript ID to look at (-e).
+where genome.gff (-A) is your annotation, evidence.gff (-E) is something like a stringtie output (gff/gtf), a gene ID of interest in your annotation (-a) and finally the transcript ID (-e) to calculate AED for against the gene ID in -a.
 
 An example using the test files inlcuded here is:
 
