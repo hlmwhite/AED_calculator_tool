@@ -12,8 +12,6 @@ This can be a useful measure to assess gene predictor accuracy. Here you can fin
 git clone https://github.com/hlmwhite/AED_calculator_tool.git
 ```
 
-```
-
 ## Usage
 
 For single use cases (i.e. one gene model one evidence model), simply run:
