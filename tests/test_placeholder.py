@@ -1,3 +1,5 @@
+import gffpandas.gffpandas as gffpd
+
 from example_calculator_v2 import (
     calculate_accuracy,
     calculate_distance,
@@ -36,9 +38,10 @@ def test_calculate_accuracy():
 
 
 def test_extract_exon_ints():
-    gff_file = "gene2_ev.gff"
+    annotationFile = gffpd.read_gff3("gene2_ev.gff")
+    # gff_file = "gene2_ev.gff"
     tx_id = "evm.model.1ctg.1717"
-    exon_intervals = extract_exon_ints(gff_file, tx_id, "ANN")
+    exon_intervals = extract_exon_ints(annotationFile.df, tx_id, "ANN")
     expected_intervals = [
         (17210569, 17210871),
         (17204220, 17204546),
