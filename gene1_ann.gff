@@ -1,0 +1,17 @@
+1ctg	.	gene	17195834	17210871	.	-	.	ID=evm.TU.1ctg.1449;Name=EVM%20prediction%201ctg.1449
+1ctg	.	mRNA	17195834	17210871	.	-	.	ID=evm.model.1ctg.1449;Parent=evm.TU.1ctg.1449;Name=EVM%20prediction%201ctg.1449
+1ctg	.	exon	17210569	17210871	.	-	.	ID=evm.model.1ctg.1449.exon1;Parent=evm.model.1ctg.1449
+1ctg	.	CDS	17210569	17210871	.	-	0	ID=evm.model.1ctg.1449.cds.1;Parent=evm.model.1ctg.1449
+1ctg	.	exon	17203287	17204546	.	-	.	ID=evm.model.1ctg.1449.exon2;Parent=evm.model.1ctg.1449
+1ctg	.	CDS	17203287	17204546	.	-	0	ID=evm.model.1ctg.1449.cds.2;Parent=evm.model.1ctg.1449
+1ctg	.	exon	17202665	17202808	.	-	.	ID=evm.model.1ctg.1449.exon3;Parent=evm.model.1ctg.1449
+1ctg	.	CDS	17202665	17202808	.	-	0	ID=evm.model.1ctg.1449.cds.3;Parent=evm.model.1ctg.1449
+1ctg	.	exon	17200809	17202570	.	-	.	ID=evm.model.1ctg.1449.exon4;Parent=evm.model.1ctg.1449
+1ctg	.	CDS	17200809	17202570	.	-	0	ID=evm.model.1ctg.1449.cds.4;Parent=evm.model.1ctg.1449
+1ctg	.	exon	17199444	17200615	.	-	.	ID=evm.model.1ctg.1449.exon5;Parent=evm.model.1ctg.1449
+1ctg	.	CDS	17199444	17200615	.	-	2	ID=evm.model.1ctg.1449.cds.5;Parent=evm.model.1ctg.1449
+1ctg	.	exon	17198724	17199371	.	-	.	ID=evm.model.1ctg.1449.exon6;Parent=evm.model.1ctg.1449
+1ctg	.	CDS	17198724	17199371	.	-	0	ID=evm.model.1ctg.1449.cds.6;Parent=evm.model.1ctg.1449
+1ctg	.	exon	17195834	17198463	.	-	.	ID=evm.model.1ctg.1449.exon7;Parent=evm.model.1ctg.1449
+1ctg	.	CDS	17196589	17198463	.	-	0	ID=evm.model.1ctg.1449.cds.7;Parent=evm.model.1ctg.1449
+1ctg	.	three_prime_UTR	17195834	17196588	.	-	.	ID=evm.model.1ctg.1449.utr3p1;Parent=evm.model.1ctg.1449

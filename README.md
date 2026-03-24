@@ -1,68 +1,58 @@
-# PythonProjectTemplate
-Template for Python projects
+# PYTHON COURSE - WORK IN PROGRESS
 
+# AED calculator tool
 
-### Development setup
+Gene models can be assessed using mapped transcript or protein evidence using a metric called annotation edit distance (AED). The theory behind this can be found at https://link.springer.com/article/10.1186/1471-2105-10-67. 
 
-Before we start developing, make sure you have the following tools installed:
+This can be a useful measure to assess gene predictor accuracy. Here you can find a simple tool for calculating AED per gene model, given some evidence.
 
-Prerequisites:
-- pipx
-
-pipx is a tool to help you install and run Python applications in isolated environments. It is all we need to install the rest of the development tools.
-
-1. Install pipx if you haven't already. You can find instructions [here](https://pipxproject.github.io/pipx/installation/).
-
-2. Use pipx to install nox, uv (Universal Versioner), and pre-commit:
-Note: The `[pbs]` extra for nox includes additional plugins, allowing it to download Python.
+# Installation
 
 ```bash
-pipx install nox[pbs] uv pre-commit
+git clone https://github.com/hlmwhite/AED_calculator_tool.git
 ```
 
-3. Now, we can use nox to set up our development environment. Run the following commands in your terminal:
+## Usage
 
-```bash
- nox -s install 
-```
-
-This command will create a virtual environment and install all the development dependencies specified in the `pyproject.toml` file. Populate the pyproject.toml file with your desired dependencies before running this command. *Note: You can run this command multiple times to ensure all dependencies are installed correctly.*
+For single use cases (i.e. one gene model one evidence model), simply run from the command line:
 
 ```bash
 
-nox -s chores 
+python3 example_calculator_v2.py -A genome.gff -E evidence.gff -a "<annotation gene>" -e "<evidence model to assess AED>"
+
 ```
 
-This command will run various code quality and formatting tools to ensure your code adheres to best practices.
+where genome.gff (-A) is your annotation, evidence.gff (-E) is something like a stringtie output (gff/gtf), a gene ID of interest in your annotation (-a) and finally the transcript ID (-e) to calculate AED for against the gene ID in -a.
+
+An example using the test files included here is:
 
 ```bash
- nox -s tests 
+
+python3 example_calculator_v2.py -A test.genome.gff -E stringtie.test.gff -a "rna-XM_034815643.1" -e "STRG.95.1"
+
+## expected output
+Number of overlapping values (true positives): 622
+Number of non-overlapping values (false negatives): 34
+SN (or sensitivity): 0.948170731707317
+Number of overlapping values: 622
+SP (or specificity): 1.0
+distance: 0.02591463414634143
+
 ```
 
-This command will run the test suite to ensure everything is working as expected.
+# next steps
 
-```bash
- nox -s lock 
-```
-
-This command will update the lock files for your dependencies to ensure you have the latest compatible versions.
-
-
-4. (Optional) (But recommended) Set up pre-commit hooks to automatically run code quality checks before each commit:
-
-```bash
- pre-commit install 
-```
-
-This command will install the pre-commit hooks defined in the `.pre-commit-config.yaml` file. This helps maintain code quality by running checks before each commit.
-
-That's it! You now have a fully set up development environment for your Python project. You can start coding, and the tools will help you maintain code quality and consistency. When you want to run Python scripts, please use:
-
-```bash
-uv run python ./path/to/myscript.py
-```
-
-   
+1. nextflow integration for working through multiple comparisons.
 
 
 
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
